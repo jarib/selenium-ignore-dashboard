@@ -8,14 +8,14 @@ var app = Sammy('#main', function() {
     // load some data
     this.load('ignores.json')
         // render a template
-        .renderEach('ignore.mustache')
+        .render('ignores.mustache')
         // swap the DOM with the new content
         .swap();
   });
 
   this.get("#/ignores/:driver", function() {
     this.load('ignores/' + this.params.driver + ".json")
-        .renderEach('ignore.mustache')
+        .render('ignores.mustache')
         .swap();
   })
 });

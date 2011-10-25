@@ -5,6 +5,8 @@ body{
   font: 12px "Droid Sans",arial,sans-serif;
 }
 
+h1 { text-align: center; }
+
 /* tables */
 table.tablesorter {
 	font-family:arial;

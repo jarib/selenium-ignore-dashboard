@@ -1,0 +1,25 @@
+<table class="tablesorter">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>ignored drivers</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#ignores}}
+      <tr>
+        <td>{{name}}</td>
+        <td>
+          {{#drivers}}
+            <a href="/#/ignores/{{name}}">{{name}}</a>
+          {{/drivers}}
+        </td>
+      </tr>
+    {{/ignores}}
+  </tbody>
+</table>
+
+
+
+
