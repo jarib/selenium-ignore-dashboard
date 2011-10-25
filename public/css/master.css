@@ -1,11 +1,15 @@
 *{margin:0;padding:0;}
 html,body{height:100%;color:black;}
 body{
+  padding: 10px;
   background-color:#F6F6F6;
   font: 12px "Droid Sans",arial,sans-serif;
 }
 
 h1 { text-align: center; }
+
+a { text-decoration: none; color: black; }
+a:hover { text-decoration: underline; }
 
 /* tables */
 table.tablesorter {

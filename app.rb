@@ -14,16 +14,22 @@ end
 get "/ignores.json" do
   content_type :json
 
-  { :ignores => current_ignores }.to_json
+  ignores = current_ignores
+  { 
+    :ignores => ignores,
+    :count   => ignores.size,
+  }.to_json
 end
 
 get "/ignores/:driver.json" do |driver|
   content_type :json
 
   drivers = driver.split(",").map { |d| d.upcase }
-
+  ignores = current_ignores.select { |ig| (ig.driver_names & drivers).any? }
+  
   {
-    :ignores => current_ignores.select { |ig| (ig.driver_names & drivers).any? }
+    :ignores => ignores,
+    :count   => ignores.size
   }.to_json
 end
 
