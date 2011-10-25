@@ -1,4 +1,8 @@
 <tr>
   <td>{{name}}</td>
-  <td>{{drivers}}</td>
+  <td>
+    {{#drivers}}
+      <a href="/#/ignores/{{name}}">{{name}}</a>
+    {{/drivers}}
+  </td>
 </tr>

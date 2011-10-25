@@ -14,24 +14,20 @@ end
 get "/ignores.json" do
   content_type :json
 
-  ignores = current_ignores.map { |e| IgnoreView.new(e) }
-
-  ignores = ignores.sort_by { |ig| ig.name }
-  ignores.to_json
+  current_ignores.to_json
 end
 
 get "/ignores/:driver.json" do |driver|
   content_type :json
 
-  ignores = current_ignores.map { |e| IgnoreView.new(e) }.select { |ig| ig.drivers.include? driver }
-
-  ignores = ignores.sort_by { |ig| ig.name }
-  ignores.to_json
+  drivers = driver.split(",").map { |d| d.upcase }
+  current_ignores.select { |ig| (ig.driver_names & drivers).any? }.to_json
 end
 
 helpers do
   def current_ignores
-    settings.db.find.sort([:_id, :descending]).limit(1).first.fetch('ignores')
+    data = settings.db.find.sort([:_id, :descending]).limit(1).first.fetch('ignores')
+    data.map { |e| IgnoreView.new(e) }.sort_by { |ig| ig.name }
   end
 end
 
@@ -44,12 +40,15 @@ class IgnoreView
     {
       :name          => name,
       :drivers       => drivers,
-      :driver_string => drivers.join(", ")
     }
   end
 
-  def drivers
+  def driver_names
     @data['drivers']
+  end
+
+  def drivers
+    driver_names.map { |name| { :name => name } }
   end
 
   def name
