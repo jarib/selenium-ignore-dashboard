@@ -22,7 +22,7 @@ end
 
 helpers do
   def current_ignores
-    settings.db.find.to_a
+    settings.db.find.sort([:_id, :descending]).limit(1).first.fetch('ignores')
   end
 end
 

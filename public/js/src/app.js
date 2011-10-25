@@ -4,7 +4,7 @@ var app = Sammy('#main', function() {
   this.use('Mustache');
 
   // define a 'route'
-  this.get('#/', function() {
+  this.get('#/ignores', function() {
     // load some data
     this.load('ignores.json')
         // render a template
@@ -15,4 +15,4 @@ var app = Sammy('#main', function() {
 });
 
 // start the application
-app.run('#/');
+app.run('#/ignores');
