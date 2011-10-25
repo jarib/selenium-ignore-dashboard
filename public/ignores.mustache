@@ -9,7 +9,9 @@
   <tbody>
     {{#ignores}}
       <tr>
-        <td>{{name}}</td>
+        <td>
+          <a href="{{url}}">{{short_class_name}}.{{test_name}}</a>
+        </td>
         <td>
           {{#drivers}}
             <a href="/#/ignores/{{name}}">{{name}}</a>

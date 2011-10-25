@@ -41,13 +41,21 @@ class IgnoreView
 
   def as_json(opts = nil)
     {
-      :name          => name,
-      :drivers       => drivers,
+      :name             => name,
+      :class_name       => class_name,
+      :short_class_name => short_class_name,
+      :test_name        => test_name,
+      :drivers          => drivers,
+      :url              => url
     }
   end
 
   def driver_names
     @data['drivers']
+  end
+
+  def url
+    "http://code.google.com/p/selenium/source/browse/trunk/java/client/test/#{class_name.gsub '.', '/'}.java"
   end
 
   def drivers
@@ -58,12 +66,12 @@ class IgnoreView
     [class_name, test_name].join "."
   end
 
-  def full_class_name
+  def class_name
     @data['className']
   end
 
-  def class_name
-    full_class_name.split(".").last
+  def short_class_name
+    class_name.split(".").last
   end
 
   def test_name
