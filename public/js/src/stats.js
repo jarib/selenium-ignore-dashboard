@@ -25,7 +25,8 @@ Stats.prototype.renderTo = function(element) {
   chart = new Highcharts.Chart({
       chart: {
          renderTo: element,
-         defaultSeriesType: 'column'
+         defaultSeriesType: 'column',
+         backgroundColor: "#F6F6F6"
       },
       title: {
          text: 'Ignored tests by driver'
