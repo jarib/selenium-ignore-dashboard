@@ -8,7 +8,7 @@ configure do
 end
 
 get "/" do
-  erb :ignores
+  erb :app
 end
 
 get "/ignores.json" do
@@ -19,6 +19,24 @@ get "/ignores.json" do
     :ignores => ignores,
     :count   => ignores.size,
   }.to_json
+end
+
+get "/stats.json" do
+  content_type :json
+
+  counts = Hash.new(0)
+
+  current_ignores.each do |ignore|
+    ignore.driver_names.each do |name|
+      counts[name] += 1
+    end
+  end
+
+  counts = counts.sort_by { |_, c| c }.reverse.map do |name, count|
+    {:name => name, :count => count}
+  end
+
+  { :counts =>  counts }.to_json
 end
 
 get "/ignores/:driver.json" do |driver|

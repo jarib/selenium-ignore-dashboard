@@ -1,15 +1,9 @@
-// initialize the application
 var app = Sammy('#main', function() {
-  // include a plugin
   this.use('Mustache');
 
-  // define a 'route'
   this.get('#/ignores', function() {
-    // load some data
     this.load('ignores.json')
-        // render a template
         .render('ignores.mustache')
-        // swap the DOM with the new content
         .swap();
   });
 
@@ -17,6 +11,19 @@ var app = Sammy('#main', function() {
     this.load('ignores/' + this.params.driver + ".json")
         .render('ignores.mustache')
         .swap();
+  })
+
+  this.get("#/stats", function(context) {
+    this.load("stats.json").then(function(data) {
+
+      stats = new Stats(data);
+
+      context.render("stats.mustache", data)
+             .swap()
+             .then(function() {
+                stats.renderTo(document.getElementById('graph'));
+            });
+    });
   })
 });
 

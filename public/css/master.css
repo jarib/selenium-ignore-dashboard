@@ -6,10 +6,41 @@ body{
   font: 12px "Droid Sans",arial,sans-serif;
 }
 
-h1 { text-align: center; }
+h1 { text-align: right; }
 
 a { text-decoration: none; color: black; }
 a:hover { text-decoration: underline; }
+
+.counts dd { font-weight: bold; }
+.counts dt { padding-left: 20px }
+
+ul {
+  list-style-type: none;
+  height: 80px;
+  margin: auto;
+}
+
+.menu li {
+  float: right;
+}
+
+.menu li a {
+/*  background-image: url(navi_bg_divider.png);*/
+  background-repeat: no-repeat;
+  background-position: right;
+  padding-right: 32px;
+  padding-left: 32px;
+  display: block;
+  line-height: 80px;
+  text-decoration: none;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 21px;
+  color: #371C1C;
+}
+
+.menu li a:hover {
+  color: #666;
+}
 
 /* tables */
 table.tablesorter {
