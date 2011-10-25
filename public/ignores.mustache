@@ -5,19 +5,33 @@
     <tr>
       <th>name</th>
       <th>ignored drivers</th>
+      <th>reason</th>
+      <th>issues</th>
     </tr>
   </thead>
 
   <tbody>
     {{#ignores}}
       <tr>
+
         <td>
           <a href="{{url}}">{{short_class_name}}.{{test_name}}</a>
         </td>
+
         <td>
           {{#drivers}}
             <a href="/#/ignores/{{name}}">{{name}}</a>
           {{/drivers}}
+        </td>
+
+        <td>
+          {{reason}}
+        </td>
+
+        <td>
+          {{#issues}}
+            <a href="{{url}}">{{id}}</a>
+          {{/issues}}
         </td>
       </tr>
     {{/ignores}}

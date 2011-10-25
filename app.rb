@@ -15,7 +15,7 @@ get "/ignores.json" do
   content_type :json
 
   ignores = current_ignores
-  { 
+  {
     :ignores => ignores,
     :count   => ignores.size,
   }.to_json
@@ -26,7 +26,7 @@ get "/ignores/:driver.json" do |driver|
 
   drivers = driver.split(",").map { |d| d.upcase }
   ignores = current_ignores.select { |ig| (ig.driver_names & drivers).any? }
-  
+
   {
     :ignores => ignores,
     :count   => ignores.size
@@ -52,12 +52,27 @@ class IgnoreView
       :short_class_name => short_class_name,
       :test_name        => test_name,
       :drivers          => drivers,
-      :url              => url
+      :url              => url,
+      :reason           => reason,
+      :issues           => issues
     }
   end
 
   def driver_names
     @data['drivers']
+  end
+
+  def reason
+    @data['reason']
+  end
+
+  def issues
+    Array(@data['issues']).map do |id|
+      {
+        :url => "http://code.google.com/p/selenium/issues/detail?id=#{id}",
+        :id  => id
+      }
+    end
   end
 
   def url

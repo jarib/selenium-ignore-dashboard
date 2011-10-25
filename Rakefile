@@ -13,9 +13,16 @@ namespace :db do
       sh "./go", "//java/client/test/org/openqa/selenium:dump-ignores:run"
 
       data = JSON.parse(File.read("ignores.json"))
+
+      unique = {}
+
+      data.each do |i|
+        unique[[i['className'], i['testName']]] = i
+      end
+
       collection.insert(
         :timestamp => Time.now,
-        :ignores   => data
+        :ignores   => unique.values
       )
     end
   end
