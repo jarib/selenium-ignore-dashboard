@@ -13,10 +13,19 @@ end
 
 get "/ignores.json" do
   content_type :json
-  
+
   ignores = current_ignores.map { |e| IgnoreView.new(e) }
-  ignores = ignores.sort_by { |ig| ig.name } 
-  
+
+  ignores = ignores.sort_by { |ig| ig.name }
+  ignores.to_json
+end
+
+get "/ignores/:driver.json" do |driver|
+  content_type :json
+
+  ignores = current_ignores.map { |e| IgnoreView.new(e) }.select { |ig| ig.drivers.include? driver }
+
+  ignores = ignores.sort_by { |ig| ig.name }
   ignores.to_json
 end
 
@@ -30,7 +39,7 @@ class IgnoreView
   def initialize(data)
     @data = data
   end
-  
+
   def as_json(opts = nil)
     {
       :name          => name,
@@ -38,27 +47,27 @@ class IgnoreView
       :driver_string => drivers.join(", ")
     }
   end
-  
+
   def drivers
     @data['drivers']
   end
-  
+
   def name
     [class_name, test_name].join "."
   end
-  
+
   def full_class_name
     @data['className']
   end
-  
+
   def class_name
     full_class_name.split(".").last
   end
-  
+
   def test_name
     @data['testName']
   end
-  
+
   def to_json(*args)
     as_json.to_json(*args)
   end

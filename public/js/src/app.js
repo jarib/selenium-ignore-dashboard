@@ -12,6 +12,12 @@ var app = Sammy('#main', function() {
         // swap the DOM with the new content
         .swap();
   });
+
+  this.get("#/ignores/:driver", function() {
+    this.load('ignores/' + this.params.driver + ".json")
+        .renderEach('ignore.mustache')
+        .swap();
+  })
 });
 
 // start the application
