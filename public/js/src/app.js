@@ -8,6 +8,7 @@ var app = Sammy('#main', function() {
   });
 
   this.get("#/ignores/:driver", function() {
+    this.swap('<div class="spinner"></div>')
     this.load('ignores/' + this.params.driver + ".json")
         .render('ignores.mustache')
         .swap();
@@ -27,5 +28,4 @@ var app = Sammy('#main', function() {
   })
 });
 
-// start the application
 app.run('#/ignores');
