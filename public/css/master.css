@@ -14,6 +14,8 @@ a:hover { text-decoration: underline; }
 .counts dd { font-weight: bold; }
 .counts dt { padding-left: 20px }
 
+.spinner { background: url(../images/spinner.gif) no-repeat; margin: auto; width: 50px; height: 50px; }
+
 ul {
   list-style-type: none;
   height: 80px;
