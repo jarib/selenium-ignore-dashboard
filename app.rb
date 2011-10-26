@@ -47,7 +47,8 @@ get "/ignores/:driver.json" do |driver|
 
   {
     :ignores => ignores,
-    :count   => ignores.size
+    :count   => ignores.size,
+    :driver  => {:name => driver}
   }.to_json
 end
 

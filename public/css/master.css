@@ -8,7 +8,7 @@ body{
 
 .header {
   text-align: left;
-  background-image: -webkit-gradient(linear,left top,left bottom,from(#e6EEEE),to(#A0AAAA));
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#e6EEEE),to(#8B9DAA));
   background-image: -moz-linear-gradient(top,#e6EEEE,#A0AAAA);
   background-image: linear-gradient(top,#e6EEEE,#A0AAAA);
   padding: 15px 0 0px 15px;
