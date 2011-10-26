@@ -26,7 +26,6 @@ Stats.prototype.renderTo = function(element) {
       chart: {
          renderTo: element,
          defaultSeriesType: 'column',
-         backgroundColor: "#F6F6F6"
       },
       title: {
          text: 'Ignored tests by driver'

@@ -2,15 +2,16 @@
 html,body{height:100%;color:black;}
 
 body{
-  background-color: #F6F6F6;
+/*  background-color: #F6F6F6;*/
+  background-color: white;
   font: 12px "Droid Sans",arial,sans-serif;
 }
 
 .header {
   text-align: left;
-  background-image: -webkit-gradient(linear,left top,left bottom,from(#e6EEEE),to(#8B9DAA));
-  background-image: -moz-linear-gradient(top,#e6EEEE,#A0AAAA);
-  background-image: linear-gradient(top,#e6EEEE,#A0AAAA);
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#EBEFF9),to(#C9D7F1));
+  background-image: -moz-linear-gradient(top,#EBEFF9,#C9D7F1);
+  background-image: linear-gradient(top,#EBEFF9,#C9D7F1);
   padding: 15px 0 0px 15px;
   height: 40px;
 }
@@ -63,8 +64,8 @@ table.tablesorter {
 	padding: 10px;
 }
 table.tablesorter thead tr th, table.tablesorter tfoot tr th {
-	background-color: #e6EEEE;
-	border: 1px solid #FFF;
+	background-color: #EBEFF9;
+	border: 1px solid #C9D7F1;
 	font-size: 8pt;
 	padding: 4px;
 }
