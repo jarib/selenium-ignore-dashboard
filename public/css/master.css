@@ -2,7 +2,6 @@
 html,body{height:100%;color:black;}
 
 body{
-/*  background-color: #F6F6F6;*/
   background-color: white;
   font: 12px "Droid Sans",arial,sans-serif;
 }
@@ -21,7 +20,7 @@ a:hover { text-decoration: underline; }
 
 .counts dd { font-weight: bold; }
 .counts dt { padding-left: 20px }
-.spinner { background: url(../images/spinner.gif) no-repeat; margin: auto; width: 50px; height: 50px; }
+.spinner { background: url(../images/spinner.gif) no-repeat; margin: auto; width: 60px; height: 60px; }
 
 #main {
   padding: 10px;
@@ -69,6 +68,7 @@ table.tablesorter thead tr th, table.tablesorter tfoot tr th {
 	font-size: 8pt;
 	padding: 4px;
 }
+
 table.tablesorter thead tr .header {
 	background-image: url(../images/bg.gif);
 	background-repeat: no-repeat;

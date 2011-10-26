@@ -2,6 +2,7 @@ var app = Sammy('#main', function() {
   this.use('Mustache');
 
   this.get('#/ignores', function() {
+    this.swap('<div class="spinner"></div>')
     this.load('ignores.json')
         .render('ignores.mustache')
         .swap();
@@ -16,14 +17,11 @@ var app = Sammy('#main', function() {
 
   this.get("#/stats", function(context) {
     this.load("stats.json").then(function(data) {
-
-      stats = new Stats(data);
-
       context.render("stats.mustache", data)
              .swap()
              .then(function() {
-                stats.renderTo(document.getElementById('graph'));
-            });
+                new Stats(data).renderTo(document.getElementById('graph'));
+             });
     });
   })
 });
