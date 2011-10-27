@@ -6,12 +6,11 @@ body{
   font: 12px "Droid Sans",arial,sans-serif;
 }
 
-
 .header {
   text-align: left;
-  background-image: -webkit-gradient(linear,left top,left bottom,from(#EBEFF9),to(#C9D7F1));
-  background-image: -moz-linear-gradient(top,#EBEFF9,#C9D7F1);
-  background-image: linear-gradient(top,#EBEFF9,#C9D7F1);
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#6AB2F4),to(#67A7E3));
+  background-image: -moz-linear-gradient(top,#6AB2F4,#67A7E3);
+  background-image: linear-gradient(top,#6AB2F4,#67A7E3);
   padding: 15px 0 0px 15px;
   height: 40px;
 }
@@ -72,7 +71,7 @@ table.tablesorter {
 }
 
 table.tablesorter thead tr th, table.tablesorter tfoot tr th {
-	background-color: #EBEFF9;
+	background-color: #D6E9F8;
 	border: 1px solid #C9D7F1;
 	font-size: 8pt;
   padding: 4px;
