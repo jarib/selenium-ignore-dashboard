@@ -53,20 +53,20 @@ ul {
   color: #666;
 }
 
-/* tables */
 table.tablesorter {
 	font-family:arial;
   margin:20px 0pt 15px;
 	font-size: 8pt;
 	width: 100%;
 	text-align: left;
-	padding: 10px;
+  padding: 10px;
 }
+
 table.tablesorter thead tr th, table.tablesorter tfoot tr th {
 	background-color: #EBEFF9;
 	border: 1px solid #C9D7F1;
 	font-size: 8pt;
-	padding: 4px;
+  padding: 4px;
 }
 
 table.tablesorter thead tr .header {
@@ -75,11 +75,13 @@ table.tablesorter thead tr .header {
 	background-position: center right;
 	cursor: pointer;
 }
+
 table.tablesorter tbody td {
 	color: #3D3D3D;
 	background-color: white;
-	padding: 4px;
+  padding: 4px;
 	vertical-align: top;
+	word-wrap: break-word;
 }
 
 table.tablesorter tbody tr.odd td {
