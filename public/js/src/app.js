@@ -20,7 +20,12 @@ var app = Sammy('#main', function() {
       context.render("stats.mustache", data)
              .swap()
              .then(function() {
-                new Stats(data).renderTo(document.getElementById('graph'));
+               var stats = new Stats(data);
+               var line = document.getElementById('line-graph');
+               var column = document.getElementById("column-graph")
+
+               stats.renderLineGraphTo(line);
+               stats.renderColumnGraphTo(column);
              });
     });
   })

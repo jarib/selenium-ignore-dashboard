@@ -24,19 +24,33 @@ end
 get "/stats.json" do
   content_type :json
 
-  counts = Hash.new(0)
+  data = settings.db.find.sort([:_id, :ascending]).to_a
+  dates = data.map { |e| e['timestamp'].strftime("%Y-%m-%d") }
 
-  current_ignores.each do |ignore|
-    ignore.driver_names.each do |name|
-      counts[name] += 1
+  result = Hash.new { |hash, driver| hash[driver] = [] }
+
+  data.each do |entry|
+    driver_counts = Hash.new(0)
+
+    entry['ignores'].each do |ignore|
+      ignore['drivers'].each do |driver|
+        driver_counts[driver] += 1
+      end
+    end
+
+    driver_counts.each do |name, count|
+      result[name] << count
     end
   end
 
-  counts = counts.sort_by { |_, c| c }.reverse.map do |name, count|
-    {:name => name, :count => count}
+  series = result.sort_by { |_, c| c }.reverse.map do |name, counts|
+    {:name => name, :data => counts}
   end
 
-  { :counts =>  counts }.to_json
+  {
+    :dates => dates,
+    :series => series
+  }.to_json
 end
 
 get "/ignores/:driver.json" do |driver|
