@@ -36,6 +36,7 @@ Stats.prototype.renderColumnGraphTo = function(element) {
           text: '# of ignores'
        }
     },
+    legend: { enabled: false },
     tooltip: {
        formatter: function() {
           return ''+
@@ -69,14 +70,15 @@ Stats.prototype.renderLineGraphTo = function(element) {
        categories: this.getDates()
     },
     yAxis: {
-       title: {
-          text: '# of ignores'
-       },
-       plotLines: [{
-          value: 0,
-          width: 1,
-          color: '#808080'
-       }]
+      min: 0,
+      title: {
+         text: '# of ignores'
+      },
+      plotLines: [{
+         value: 0,
+         width: 1,
+         color: '#808080'
+      }]
     },
     credits: { enabled: false },
     tooltip: {

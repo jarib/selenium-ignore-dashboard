@@ -21,7 +21,13 @@ a:hover { text-decoration: underline; }
 
 .counts dd { font-weight: bold; }
 .counts dt { padding-left: 20px }
-.spinner { background: url(../images/spinner.gif) no-repeat; margin: auto; width: 60px; height: 60px; }
+
+.spinner {
+  background: url(../images/spinner.gif) no-repeat;
+  margin: auto;
+  width: 60px;
+  height: 60px;
+}
 
 .graph { width: 90%; margin: auto; }
 

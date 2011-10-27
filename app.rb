@@ -43,8 +43,8 @@ get "/stats.json" do
     end
   end
 
-  series = result.sort_by { |_, c| c }.reverse.map do |name, counts|
-    {:name => name, :data => counts}
+  series = result.sort_by { |_, c| c.last || 0 }.reverse.map do |name, counts|
+    {:name => name.downcase, :data => counts}
   end
 
   {
