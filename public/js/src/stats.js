@@ -33,7 +33,7 @@ Stats.prototype.renderColumnGraphTo = function(element) {
     yAxis: {
        min: 0,
        title: {
-          text: 'Ignored tests'
+          text: '# of ignores'
        }
     },
     tooltip: {
