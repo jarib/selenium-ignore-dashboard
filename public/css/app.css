@@ -108,3 +108,15 @@ table tbody td {
   font-size: 8pt;
 }
 
+.left td {
+  background: #9F9;
+  border: 1px solid #3A3;
+  border-width: 0 1px 0 1px;
+}
+
+.right td {
+  background: #F88;
+  border: 1px solid #A33;
+  border-width: 0 1px 0 1px;
+}
+

@@ -1,6 +1,8 @@
 var Menu = (function() {
   return {
-    selectLink: function(id) {
+    selectTab: function(name) {
+      var id = "" + name + "-link";
+
       $(".menu a").each(function(index) {
         if (this.id == id) {
           $(this).addClass("selected");

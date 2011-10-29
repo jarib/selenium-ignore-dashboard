@@ -53,11 +53,11 @@ get "/stats.json" do
   }.to_json
 end
 
-get "/ignores/:driver.json" do |driver|
+get "/ignores/:drivers.json" do |drivers|
   content_type :json
 
-  drivers = driver.split(",").map { |d| d.upcase }
-  ignores = current_ignores.select { |ig| (ig.driver_names & drivers).any? }
+  drivers = drivers.split(",").map { |d| d.upcase }
+  ignores = ignores_for(drivers)
 
   {
     :ignores => ignores,
@@ -66,10 +66,44 @@ get "/ignores/:driver.json" do |driver|
   }.to_json
 end
 
+get "/drivers.json" do
+  content_type :json
+
+  names = current_ignores.map { |e| e.driver_names }.flatten.uniq
+  names.map! { |n| { :name => n } }
+
+  {:drivers => names}.to_json
+end
+
+get "/diff/:drivers.json" do |drivers|
+  content_type :json
+
+  drivers = drivers.split(",").map { |d| d.upcase }
+  ignores = ignores_for(drivers)
+
+  ignores.map { |ig|
+    names = ig.driver_names
+    a, b = *drivers
+
+    if names.include? a and names.include? b
+      # ignored for both drivers - do nothing
+    elsif names.include? drivers[0]
+      ig.as_json.merge(:side => "left")
+    else
+      ig.as_json.merge(:side => "right")
+    end
+  }.compact.to_json
+end
+
 helpers do
   def current_ignores
     data = settings.db.find.sort([:_id, :descending]).limit(1).first.fetch('ignores')
     data.map { |e| IgnoreView.new(e) }.sort_by { |ig| ig.name }
+  end
+
+  def ignores_for(drivers)
+
+    current_ignores.select { |ig| (ig.driver_names & drivers).any? }
   end
 end
 
