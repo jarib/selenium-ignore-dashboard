@@ -50,6 +50,7 @@ ul {
 
 .menu li {
   float: left;
+  border-right: 1px solid #8FAAD9;
 }
 
 .menu li a {
