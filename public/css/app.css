@@ -19,8 +19,7 @@ body{
 a { text-decoration: none; color: black; }
 a:hover { text-decoration: underline; }
 
-.counts dd { font-weight: bold; }
-.counts dt { padding-left: 20px }
+#count { text-align: right; }
 
 .spinner {
   background: url(../images/spinner.gif) no-repeat;
@@ -64,10 +63,6 @@ ul {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 18px;
   color: #371C1C;
-}
-
-.menu li a:hover {
-  text-decoration: underline;
 }
 
 .menu li a.selected {
