@@ -8,11 +8,12 @@
 <body>
   <div class="header">
     <h1>Selenium Ignore Dashboard</h1>
-    <ul class="menu">
-      <li><a href="#/stats">Graphs</a></li>
-      <li><a href="#/ignores">Ignores</a></li>
-    </ul>
   </div>
+  <ul class="menu">
+    <li><a id="ignore-link" href="#/ignores" class="selected">Ignores</a></li>
+    <li><a id="stats-link" href="#/stats">Graphs</a></li>
+  </ul>
+  
 
   <div id="main">
     <div class="spinner"></div>
@@ -23,6 +24,7 @@
   <script src="js/lib/sammy-latest.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/lib/sammy.mustache.js" type="text/javascript" charset="utf-8"></script>
   <script src="highcharts/js/highcharts.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/src/menu.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/src/stats.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/src/app.js" type="text/javascript" charset="utf-8"></script>
 </body>

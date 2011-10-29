@@ -13,7 +13,8 @@ body{
   background-image: linear-gradient(top,#6AB2F4,#67A7E3);
   padding: 15px 0 0px 15px;
   height: 40px;
-}
+  color: #004;
+}        
 
 a { text-decoration: none; color: black; }
 a:hover { text-decoration: underline; }
@@ -40,8 +41,15 @@ ul {
   margin: auto;
 }
 
+.menu {
+  border-bottom: 1px solid #8FAAD9;
+  border-top: 1px solid #8FAAD9;
+  background-color: #D6E9F8;
+  height: 40px;
+}
+
 .menu li {
-  float: right;
+  float: left;
 }
 
 .menu li a {
@@ -50,15 +58,19 @@ ul {
   padding-right: 32px;
   padding-left: 32px;
   display: block;
-  line-height: 80px;
+  line-height: 40px;
   text-decoration: none;
   font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 21px;
+  font-size: 18px;
   color: #371C1C;
 }
 
 .menu li a:hover {
-  color: #666;
+  text-decoration: underline;
+}
+
+.menu li a.selected {
+  font-weight: bold;
 }
 
 table.tablesorter {
@@ -99,10 +111,11 @@ table.tablesorter tbody tr.odd td {
 table.tablesorter thead tr .headerSortUp {
 	background-image: url(../images/asc.gif);
 }
+
 table.tablesorter thead tr .headerSortDown {
 	background-image: url(../images/desc.gif);
 }
+
 table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
   background-color: #8dbdd8;
 }
-
