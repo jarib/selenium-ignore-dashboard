@@ -5,7 +5,7 @@ var app = Sammy('#main', function() {
     this.swap('<div class="spinner"></div>')
     this.load('ignores.json')
         .render('ignores.mustache')
-        .then(function() { Menu.selectLink("ignore-link"); })
+        .then(function() { Menu.selectLink("list-link"); })
         .swap();
   });
 
@@ -13,7 +13,7 @@ var app = Sammy('#main', function() {
     this.swap('<div class="spinner"></div>')
     this.load('ignores/' + this.params.driver + ".json")
         .render('ignores.mustache')
-        .then(function() { Menu.selectLink("ignore-link"); })
+        .then(function() { Menu.selectLink("list-link"); })
         .swap();
   })
 
