@@ -48,16 +48,21 @@ var app = Sammy('#main', function() {
 
   this.get("#/diff", function(context) {
     Menu.selectTab("diff");
-
-    this.render("spinner.mustache")
+    this.load("drivers.json")
+        .render("diff.mustache")
         .swap()
-        .load("drivers.json")
-        .then(function(drivers) {
-          console.log(drivers)
-          context.render("diff.mustache", drivers)
-                 .swap()
-                 .then(function() { Diff.init(context); })
-          ;
+        .then(function() { Diff.init(context); })
+    ;
+  });
+
+  this.get("#/diff/:drivers", function(context) {
+    Menu.selectTab("diff");
+    this.load("drivers.json")
+        .render("diff.mustache")
+        .swap()
+        .then(function() {
+          Diff.init(context);
+          Diff.loadDrivers(context.params.drivers.split(","));
         })
     ;
   });
