@@ -53,10 +53,10 @@ get "/stats.json" do
   }.to_json
 end
 
-get "/ignores/:drivers.json" do |drivers|
+get "/ignores/:driver.json" do |driver|
   content_type :json
 
-  drivers = drivers.split(",").map { |d| d.upcase }
+  drivers = driver.split(",").map { |d| d.upcase }
   ignores = ignores_for(drivers)
 
   {
