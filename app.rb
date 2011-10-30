@@ -24,10 +24,13 @@ end
 get "/stats.json" do
   content_type :json
 
+  # TODO: clean up / optimize
+
   data = settings.db.find.sort([:_id, :ascending]).to_a
   dates = data.map { |e| e['timestamp'].strftime("%Y-%m-%d") }
 
   result = Hash.new { |hash, driver| hash[driver] = [] }
+  driver_names = current_driver_names
 
   data.each do |entry|
     driver_counts = Hash.new(0)
@@ -38,8 +41,8 @@ get "/stats.json" do
       end
     end
 
-    driver_counts.each do |name, count|
-      result[name] << count
+    driver_names.each do |name|
+      result[name] << driver_counts[name]
     end
   end
 
@@ -69,7 +72,7 @@ end
 get "/drivers.json" do
   content_type :json
 
-  names = current_ignores.map { |e| e.driver_names }.flatten.uniq
+  names = current_driver_names
   names.map! { |n| { :name => n } }
 
   {:drivers => names}.to_json
@@ -101,8 +104,11 @@ helpers do
     data.map { |e| IgnoreView.new(e) }.sort_by { |ig| ig.name }
   end
 
-  def ignores_for(drivers)
+  def current_driver_names
+    current_ignores.map { |e| e.driver_names }.flatten.uniq
+  end
 
+  def ignores_for(drivers)
     current_ignores.select { |ig| (ig.driver_names & drivers).any? }
   end
 end
