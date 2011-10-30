@@ -63,6 +63,8 @@ ul {
 
 .menu li {
   float: left;
+  width: 80px;
+  text-align: center;
   border-right: 1px solid #8FAAD9;
 }
 
