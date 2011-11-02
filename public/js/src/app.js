@@ -1,4 +1,4 @@
-/* globals Sammy */
+/*global Sammy Menu Stats Diff document */
 
 var app = Sammy('#main', function() {
   this.use('Mustache');
@@ -23,7 +23,7 @@ var app = Sammy('#main', function() {
         .render('ignores.mustache')
         .swap()
     ;
-  })
+  });
 
   this.get("#/stats", function(context) {
     Menu.selectTab("stats");
@@ -44,7 +44,7 @@ var app = Sammy('#main', function() {
                  });
         })
     ;
-  })
+  });
 
   this.get("#/diff", function(context) {
     Menu.selectTab("diff");
