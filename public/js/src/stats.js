@@ -61,7 +61,6 @@ Stats.prototype.renderLineGraphTo = function(element) {
        renderTo: element,
        defaultSeriesType: 'line',
        marginRight: 130,
-       marginBottom: 25
     },
     title: {
        text: 'History',
