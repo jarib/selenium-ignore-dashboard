@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <title>Selenium Ignore Dashboard</title>
-  <link rel="stylesheet" href="css/app.css" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="css/bootstrap.min.css?bust=<%= rand 1000 %>" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="css/app.css?bust=<%= rand 1000 %>" type="text/css" media="screen" charset="utf-8">
 
   <script type="text/javascript">
-
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-26481142-1']);
     _gaq.push(['_setDomainName', 'jaribakken.com']);
@@ -21,15 +21,21 @@
   </script>
 </head>
 <body>
-  <div class="header">
-    <h1>Selenium Ignore Dashboard</h1>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="container">
+        <h3><a href="/">Selenium Ignore Dashboard</a></h3>
+      </div>
+    </div>
   </div>
-  <ul class="menu">
-    <li><a id="list-link" href="#/ignores" class="selected">List</a></li>
-    <li><a id="stats-link" href="#/stats">Graphs</a></li>
-    <li><a id="diff-link" href="#/diff">Diff</a></li>
-  </ul>
 
+  <div class="container">
+    <ul class="tabs">
+      <li class="active"><a id="list-link" href="#/ignores">List</a></li>
+      <li><a id="stats-link" href="#/stats">Graphs</a></li>
+      <li><a id="diff-link" href="#/diff">Diff</a></li>
+    </ul>
+  </div>
   <div id="main"></div>
 
   <script src="js/lib/jquery.js" type="text/javascript" charset="utf-8"></script>

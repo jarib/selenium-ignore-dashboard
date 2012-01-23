@@ -3,11 +3,11 @@ var Menu = (function() {
     selectTab: function(name) {
       var id = "" + name + "-link";
 
-      $(".menu a").each(function(index) {
-        if (this.id == id) {
-          $(this).addClass("selected");
+      $(".tabs li").each(function(index) {
+        if ($(this).find("#" + id).size() > 0) {
+          $(this).addClass("active");
         } else {
-          $(this).removeClass("selected");
+          $(this).removeClass("active");
         }
       });
     }

@@ -1,22 +1,7 @@
-*{margin:0;padding:0;}
-html,body{height:100%;color:black;}
-
-body {
-  background-color: white;
-  font: 12px "Droid Sans",arial,sans-serif;
-}
-
-.header {
-  text-align: left;
-  background-color: #6AB2F4;
-  padding: 15px 0 0px 15px;
-  height: 40px;
-}
-
-a { text-decoration: none; color: black; }
-a:hover { text-decoration: underline; }
+body { padding-top: 50px; }
 
 #count { text-align: right; }
+#main { padding: 30px; }
 
 .horizon {
   text-align: center;
@@ -42,87 +27,19 @@ a:hover { text-decoration: underline; }
   height: 70px;
 }
 
-.graph { width: 90%; margin: auto; }
-
-#main {
-  padding: 10px;
-}
-
-ul {
-  list-style-type: none;
-  height: 80px;
-  margin: auto;
-}
-
-.menu {
-  border-bottom: 1px solid #8FAAD9;
-  border-top: 1px solid #8FAAD9;
-  background-color: #E5ECF9;
-  height: 40px;
-}
-
-.menu li {
-  float: left;
-  width: 80px;
-  text-align: center;
-  border-right: 1px solid #8FAAD9;
-}
-
-.menu li a {
-  background-repeat: no-repeat;
-  background-position: right;
-  padding-right: 1em;
-  padding-left: 1em;
-  line-height: 40px;
-  text-decoration: none;
-  font-size: 16px;
-  color: #371C1C;
-  width: 100px;
-}
-
-.menu li a.selected {
-  font-weight: bold;
-}
-
-table {
-  margin: 1em 0 0 1px;
-  border: 1px solid;
-  border-spacing: 0;
-  border-collapse: collapse;
-  clear: right;
-  border-color: #BBB;
-}
-
-th {
-  font-weight: bold;
-  text-align: left;
-  padding: 6px 12px;
-  border: 1px solid #BBB;
-  background-color: #E5ECF9;
-}
-
-table tbody td {
-  padding: 6px 12px;
-  border: 1px solid #BBB;
-  background-color: white;
-  text-align: left;
-  vertical-align: top;
-  font-size: 8pt;
-}
+.graph { width: 85%; margin: auto; }
 
 .left td {
-  background: #9F9;
-  border: 1px solid #3A3;
-  border-width: 0 1px 0 1px;
+  background: #D1EED1;
+  border: 1px solid #BFE7BF;
 }
 
 .right td {
-  background: #F88;
-  border: 1px solid #A33;
-  border-width: 0 1px 0 1px;
+  background: #FDDFDE;
 }
 
 #line-graph {
+  margin-top: 100px;
   margin-bottom: 100px;
   height: 50em;
 }

@@ -1,15 +1,16 @@
-<select id="diff-left">
-  {{#drivers}}
-    <option value="{{name}}">{{name}}</option>
-  {{/drivers}}
-</select>
+<div class="container">
+  <select id="diff-left">
+    {{#drivers}}
+      <option value="{{name}}">{{name}}</option>
+    {{/drivers}}
+  </select>
 
-vs
+  vs
 
-<select id="diff-right">
-  {{#drivers}}
-    <option value="{{name}}">{{name}}</option>
-  {{/drivers}}
-</select>
-
+  <select id="diff-right">
+    {{#drivers}}
+      <option value="{{name}}">{{name}}</option>
+    {{/drivers}}
+  </select>
+</div>
 <div id="diff"></div>
