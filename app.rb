@@ -27,8 +27,12 @@ get "/stats.json" do
   # TODO: clean up / optimize
 
   data = settings.db.find.sort([:_id, :ascending]).to_a
-  mod = data.size / 13
-  data = data.reverse.select.with_index { |_, i| i % mod == 0 }.reverse
+
+  if data.size >= 13
+    mod = data.size / 13
+    data = data.reverse.select.with_index { |_, i| i % mod == 0 }.reverse
+  end
+
   dates = data.map { |e| e['timestamp'].strftime("%Y-%m-%d") }
 
   result = Hash.new { |hash, driver| hash[driver] = [] }

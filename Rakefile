@@ -10,12 +10,32 @@ namespace :db do
   desc "Take a snapshot of current ignores from #{URL}"
   task :snapshot => :env do
     collection = Mongo::Connection.new.db("selenium").collection("ignores")
-    data = JSON.parse(open(URL).read)
+
+    url = ENV['URL'] || URL
+    data = JSON.parse(open(url).read)
 
     unique = {}
 
     data.each do |i|
-      unique[[i['className'], i['testName']]] = i
+      merged = {
+        'testName'  => i['testName'],
+        'className' => i['className'],
+        'drivers'   => [],
+        'issues'    => [],
+        'reasons'   => []
+      }
+
+      [i['class'], i['method']].compact.each do |obj|
+        merged['drivers'] += obj['drivers']
+        merged['issues'] += obj['issues']
+        merged['reasons'] << obj['reason']
+      end
+
+      merged['drivers'] = merged['drivers'].uniq.sort
+      merged['issues'] = merged['issues'].uniq.sort
+      merged['reason'] = merged.delete('reasons').join(" ")
+
+      unique[[i['className'], i['testName']]] = merged
     end
 
     collection.insert(
