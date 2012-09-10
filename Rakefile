@@ -4,7 +4,7 @@ task :env do
   require 'open-uri'
 end
 
-URL = "http://sci.illicitonion.com/jarib/ignores.json"
+URL = "http://ci.seleniumhq.org/jarib/ignores.json"
 
 namespace :db do
   desc "Take a snapshot of current ignores from #{URL}"
