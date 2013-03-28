@@ -7,7 +7,7 @@ GEM
     json (1.7.7)
     mongo (1.7.0)
       bson (~> 1.7.0)
-    rack (1.4.1)
+    rack (1.5.2)
     rack-protection (1.2.0)
       rack
     rake (10.0.2)
